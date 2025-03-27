@@ -23,6 +23,7 @@
 ```python
 @router.put("/documents/{id}/activate")  # Toggle document visibility
 @router.post("/upload")  # Ingest PDFs, Word, TXT with auto-chunking
+```
 
 
 # RAG Pipeline
