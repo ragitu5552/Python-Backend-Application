@@ -70,7 +70,7 @@ A **Retrieval-Augmented Generation (RAG)** pipeline for intelligent document Q&A
 └── main.py           # FastAPI app setup
 ```
 
-Setup Guide
+## 🛠 Setup Guide
 # 1. Install dependencies
 pip install -r requirements.txt
 
