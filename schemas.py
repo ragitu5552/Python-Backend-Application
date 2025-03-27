@@ -28,7 +28,7 @@ class DocumentListResponse(BaseModel):
     class Config:
         orm_mode = True
 
-class DocumentUpdate(DocumentBase):  # Inherit from DocumentBase for optional updates
+class DocumentUpdate(DocumentBase):  
     title: Optional[str] = None
     content: Optional[str] = None
     is_active: Optional[bool] = None

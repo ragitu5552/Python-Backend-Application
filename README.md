@@ -23,3 +23,58 @@
 ```python
 @router.put("/documents/{id}/activate")  # Toggle document visibility
 @router.post("/upload")  # Ingest PDFs, Word, TXT with auto-chunking
+
+
+# RAG Pipeline
+
+A **Retrieval-Augmented Generation (RAG)** pipeline for intelligent document Q&A using **FastAPI**, **Sentence-Transformers**, and **Llama 3**.
+
+---
+
+## 🚀 Overview  
+
+### **Pipeline Components**  
+1. **Chunking**:  
+   - Splits text into **512-token** segments with a **20-token overlap**.  
+2. **Embedding**:  
+   - Uses **Sentence-Transformers** for dense vector representations.  
+3. **Retrieval**:  
+   - Fetches the **Top-K** most relevant chunks across active documents.  
+4. **Generation**:  
+   - Uses **Llama 3** for context-aware responses.  
+
+---
+
+## 🔗 API Endpoints  
+
+| Endpoint                      | Method | Description                    |
+|--------------------------------|--------|--------------------------------|
+| `/documents/upload`            | `POST` | Upload and embed documents     |
+| `/documents/{id}/activate`     | `PUT`  | Enable document for Q&A        |
+| `/qa/query`                    | `POST` | Retrieve relevant document chunks |
+| `/qa/answer`                   | `POST` | Generate answers using LLM     |
+
+---
+
+## 📂 Code Structure
+
+.
+├── routers/
+│   ├── documents.py  # CRUD and activation
+│   └── qa.py         # RAG endpoints
+├── services/
+│   ├── embedding.py  # Chunking + vector generation
+│   └── retriever.py  # Semantic search
+├── models.py         # Database schemas
+└── main.py           # FastAPI app setup
+
+
+Setup Guide
+# 1. Install dependencies
+pip install -r requirements.txt
+
+# 2. Start PostgreSQL with pgvector
+create a .env file like .env.example provided and give your own credentials
+
+# 3. Run FastAPI
+uvicorn main:app --reload
