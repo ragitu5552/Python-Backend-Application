@@ -58,7 +58,7 @@ A **Retrieval-Augmented Generation (RAG)** pipeline for intelligent document Q&A
 ---
 
 ## 📂 Code Structure
-
+```
 .
 ├── routers/
 │   ├── documents.py  # CRUD and activation
@@ -68,7 +68,7 @@ A **Retrieval-Augmented Generation (RAG)** pipeline for intelligent document Q&A
 │   └── retriever.py  # Semantic search
 ├── models.py         # Database schemas
 └── main.py           # FastAPI app setup
-
+```
 
 Setup Guide
 # 1. Install dependencies
