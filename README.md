@@ -64,19 +64,28 @@ curl.exe -X POST -F "file=@test.txt" http://localhost:8000/documents/upload
 ```
 
 **List all the documents**
-```curl http://localhost:8000/documents/```
+```
+curl http://localhost:8000/documents/
+```
 
 **Activate a document:**
-```curl -X PUT http://localhost:8000/documents/1/activate```
+```
+curl -X PUT http://localhost:8000/documents/1/activate
+```
 
 **Deactivate a document:**
-```curl -X PUT http://localhost:8000/documents/1/deactivate```
+```
+curl -X PUT http://localhost:8000/documents/1/deactivate
+```
 
 **List only active documents:**
-```curl http://localhost:8000/documents/active```
+```
+curl http://localhost:8000/documents/active
+```
 
 **Getting the answer:**
-```$body = @{
+```
+$body = @{
     question = "What are the key points about document management?"
     top_k = 3
 } | ConvertTo-Json -Compress
