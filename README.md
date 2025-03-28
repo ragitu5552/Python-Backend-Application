@@ -57,6 +57,33 @@ A **Retrieval-Augmented Generation (RAG)** pipeline for intelligent document Q&A
 
 ---
 
+## Example endpoints
+**Test the upload endpoint with**
+```curl.exe -X POST -F "file=@test.txt" http://localhost:8000/documents/upload```
+
+**List all the documents**
+```curl http://localhost:8000/documents/```
+
+**Activate a document:**
+```curl -X PUT http://localhost:8000/documents/1/activate```
+
+**Deactivate a document:**
+```curl -X PUT http://localhost:8000/documents/1/deactivate```
+
+**List only active documents:**
+```curl http://localhost:8000/documents/active```
+
+**Getting the answer:**
+```$body = @{
+    question = "What are the key points about document management?"
+    top_k = 3
+} | ConvertTo-Json -Compress
+
+Invoke-RestMethod -Uri "http://localhost:8000/qa/answer" `
+    -Method Post `
+    -Body $body `
+    -ContentType "application/json"
+```
 ## 📂 Code Structure
 ```
 .
@@ -72,10 +99,10 @@ A **Retrieval-Augmented Generation (RAG)** pipeline for intelligent document Q&A
 
 ## 🛠 Setup Guide
 # 1. Install dependencies
-pip install -r requirements.txt
+```pip install -r requirements.txt```
 
 # 2. Start PostgreSQL with pgvector
 create a .env file like .env.example provided and give your own credentials
 
 # 3. Run FastAPI
-uvicorn main:app --reload
+```uvicorn main:app --reload```
