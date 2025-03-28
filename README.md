@@ -59,7 +59,9 @@ A **Retrieval-Augmented Generation (RAG)** pipeline for intelligent document Q&A
 
 ## Example endpoints
 **Test the upload endpoint with**
-```curl.exe -X POST -F "file=@test.txt" http://localhost:8000/documents/upload```
+```
+curl.exe -X POST -F "file=@test.txt" http://localhost:8000/documents/upload
+```
 
 **List all the documents**
 ```curl http://localhost:8000/documents/```
